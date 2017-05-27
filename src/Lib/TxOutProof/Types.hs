@@ -19,10 +19,10 @@ import           GHC.Generics
 -- | Independently verifiable proof that a transaction was included in a block.
 data FundingProof = FundingProof
     { -- | Transaction of interest. Has an output that sends funds to our address.
-      proof_tx_data :: HT.Tx
+      proof_tx_data :: !HT.Tx
       -- | Block which includes transaction.
-    , proof_data    :: HB.MerkleBlock
-    } deriving (Generic, ToJSON, FromJSON)
+    , proof_data    :: !HB.MerkleBlock
+    } deriving (Eq, Show, Generic, ToJSON, FromJSON)
 
 verifyFundingProof :: FundingProof -> Either String HT.TxHash
 verifyFundingProof FundingProof{..} =
@@ -46,7 +46,6 @@ verifyMerkleBlock HB.MerkleBlock{..} =
                 Left $ "Merkle root mismatch. Block header: " ++
                     show (HB.merkleRoot merkleHeader) ++
                     ", calculated: " ++ show merk
-
 
 instance ToJSON HB.MerkleBlock where
     toJSON = String . cs . B16.encode . Bin.encode

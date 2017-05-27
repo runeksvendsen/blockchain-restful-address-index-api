@@ -6,10 +6,17 @@ packages:
     git: https://github.com/runeksvendsen/haskell-bitcoin-api.git
     commit: 5c3d774300bbc283406b6c9719f8d223e2e4f267
   extra-dep: true
-
+- location:
+    git: https://github.com/haskoin/haskoin.git
+    commit: e11ff9b8375ea07bf72420401898f9d607476bb2
+  extra-dep: true
+  subdirs:
+    - haskoin-core
+    - haskoin-node
+    - haskoin-wallet
 
 extra-deps:
-- haskoin-core-0.4.0
+#- haskoin-core-0.4.0
 - murmur3-1.0.3
 - pbkdf-1.1.1.1
 - secp256k1-0.4.6

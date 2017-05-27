@@ -1,28 +1,28 @@
-name: blockchain-restful-address-index-api
-version: '0.2.0.0'
-synopsis: API for RESTful HTTP "addr-index Bitcoin Core" wrapper
-description: Look balances of Bitcoin addresses; get proof that a transaction was included in a block
-category: Bitcoin,Web
-author: Rune K. Svendsen
-maintainer: runesvend@gmail.com
-license: OtherLicense
+name:         blockchain-restful-address-index-api
+version:      '0.2.0.0'
+synopsis:     API for RESTful HTTP "addr-index Bitcoin Core" wrapper
+description:  Look balances of Bitcoin addresses; get proof that a transaction was included in a block
+category:     Bitcoin,Web
+author:       Rune K. Svendsen
+maintainer:   runesvend@gmail.com
+license:      OtherLicense
 license-file: LICENSE
-github: runeksvendsen/blockchain-restful-address-index-api
+github:       runeksvendsen/blockchain-restful-address-index-api
 
 dependencies:
 - base >=4 && <5
+- hexstring
+- bytestring
 - base16-bytestring
 - text
 - string-conversions
-- haskoin-core
 - aeson
 - servant
 - http-api-data
 - http-media
 - errors
 - cereal
-- hexstring
-- bytestring
+- haskoin-core
 - either
 
 library:
@@ -31,5 +31,3 @@ library:
   exposed-modules:
   - Network.Bitcoin.AddrIndex.API
   - Network.Bitcoin.AddrIndex.Types
-
-

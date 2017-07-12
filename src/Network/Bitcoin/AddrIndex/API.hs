@@ -19,6 +19,7 @@ where
 
 import           Network.Bitcoin.AddrIndex.Types
 import           Lib.TxOutProof.Types           (verifyFundingProof)
+--import           Data.Word                      (Word64)
 import           Servant.API
 import qualified Network.Haskoin.Transaction    as HT
 import qualified Data.Aeson                     as JSON

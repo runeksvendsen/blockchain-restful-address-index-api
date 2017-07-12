@@ -18,6 +18,7 @@ dependencies:
 - string-conversions
 - aeson
 - servant
+- servant-client
 - http-api-data
 - http-media
 - errors

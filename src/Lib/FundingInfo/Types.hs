@@ -10,6 +10,7 @@ import           Data.Aeson (ToJSON, FromJSON, toJSON, parseJSON, Value(Object),
 import           Data.Word (Word32)
 import           Control.Monad (mzero)
 import           GHC.Generics
+-- import           Test.QuickCheck.Arbitrary
 
 
 -- | Holds information about an output paying to an address

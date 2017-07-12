@@ -8,6 +8,7 @@ module Network.Bitcoin.AddrIndex.API
 , UnspentOuts
 , TxOutProof
 , PublishTx
+, EstimateFee
 , RawCmd
   -- *Utility
 , verifyFundingProof
@@ -30,20 +31,28 @@ type BlockchainApi =
   :<|> UnspentOuts
   :<|> TxOutProof
   :<|> PublishTx
+  :<|> EstimateFee
   :<|> RawCmd
 
-
+-- | Get all outputs paying to address
 type AllOuts =
     "outputs"     :> Capture "address" Addr :> "all"        :> Get  '[JSON] [AddressFundingInfo]
 
+-- | Get unspent outputs paying to address
 type UnspentOuts =
     "outputs"     :> Capture "address" Addr :> "unspent"    :> Get  '[JSON] [AddressFundingInfo]
 
+-- | Get proof that transaction is in block
 type TxOutProof =
     "txOutProof"  :> Capture "txid" HT.TxHash               :> Get  '[JSON] FundingProof
 
+-- | Publish a transaction
 type PublishTx =
     "publishTx"   :> ReqBody '[JSON] PushTxReq              :> Post '[JSON] PushTxResp
+
+-- | Estimate fee (in satoshis per byte) needed to get transaction confirmed within "maxBlocks"
+type EstimateFee =
+    "estimateFee" :> Capture "maxBlocks" Word               :> Get '[JSON] Word
 
 type RawCmd =
     "rawCmd"      :> Capture "method" String
